@@ -4,29 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Example - A suite of browser-based text tools." />
-  <meta name="keywords" content="text tools, string manipulation, word counter, base64 encoder" />
+  <meta name="keywords" content="text tools, string manipulation, word counter, json validator" />
   <meta name="author" content="Example" />
   <title>Example | Text Tools</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <h1>Example</h1>
-    <p>Your go-to hub for free, browser-based text tools.</p>
+    <p>Your all-in-one toolkit for text transformation and analysis.</p>
+    <input type="text" id="search-bar" placeholder="Search tools..." autocomplete="off" />
+    <ul id="suggestions" class="autocomplete-list"></ul>
   </header>
 
   <main>
     <section id="tool-grid">
-      <h2>Available Tools</h2>
-      <ul>
-        <li><a href="tools/word-counter/index.html">Word & Character Counter</a></li>
-        <li><a href="tools/json-validator/index.html">JSON Validator</a></li>
-        <li><a href="tools/base64-encoder/index.html">Base64 Encoder/Decoder</a></li>
-      </ul>
+      <h2>Tools</h2>
+      <div class="tool-card-container">
+        <a href="tools/word-counter/index.html" class="tool-card">Word & Character Counter</a>
+        <a href="tools/json-validator/index.html" class="tool-card">JSON Validator</a>
+        <a href="tools/base64-encoder/index.html" class="tool-card">Base64 Encoder/Decoder</a>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <p>&copy; 2025 Example. All rights reserved.</p>
   </footer>
 
