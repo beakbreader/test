@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1"
-  />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Screen Recorder — 1080p60</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -53,7 +50,22 @@
       </div>
 
       <div class="buttons">
-        <button id="startBtn" class="primary">Start capture</button>
+        <!-- Inline test onclick handler for immediate debugging -->
+        <button id="startBtn" class="primary"
+          onclick="(async()=>{
+            const s = document.querySelector('#status');
+            if (!navigator.mediaDevices?.getDisplayMedia){
+              s.textContent='No getDisplayMedia (unsupported or blocked)';
+              return;
+            }
+            try {
+              await navigator.mediaDevices.getDisplayMedia({ video: true });
+              s.textContent='Picker opened — OK';
+            } catch (e) {
+              s.textContent='Error: ' + (e.name || e.message);
+            }
+          })()"
+        >Start capture</button>
         <button id="pauseBtn" disabled>Pause</button>
         <button id="resumeBtn" disabled>Resume</button>
         <button id="stopBtn" class="danger" disabled>Stop</button>
@@ -76,8 +88,8 @@
       <h2>Output</h2>
       <div id="downloads"></div>
       <p class="note">
-        Tip: Chrome/Edge record to <code>.webm</code>. For editing in picky software, transcode to MP4 with
-        FFmpeg: <code>ffmpeg -i input.webm -c:v libx264 -preset veryfast -crf 20 -c:a aac output.mp4</code>
+        Tip: Chrome/Edge record to <code>.webm</code>. For editing, transcode with:
+        <code>ffmpeg -i input.webm -c:v libx264 -preset veryfast -crf 20 -c:a aac output.mp4</code>
       </p>
     </section>
 
@@ -88,9 +100,10 @@
   </main>
 
   <footer class="site-footer">
-    <small>Pro tip: your browser may still cap at 30fps if your display or OS can’t deliver 60. That’s not you; that’s physics and drivers.</small>
+    <small>Pro tip: your browser may still cap at 30 fps if your display/OS can’t deliver 60.</small>
   </footer>
 
-  <script src="script.js" defer></script>
+  <!-- Bump version to bust any caching issues -->
+  <script src="script.js?v=2" defer></script>
 </body>
 </html>
