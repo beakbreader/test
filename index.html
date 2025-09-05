@@ -1,37 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Example - A suite of browser-based text tools." />
-  <meta name="keywords" content="text tools, string manipulation, word counter, json validator" />
-  <meta name="author" content="Example" />
-  <title>Example | Text Tools</title>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  />
+  <title>Screen Recorder — 1080p60</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
-    <h1>Example</h1>
-    <p>Your all-in-one toolkit for text transformation and analysis.</p>
-    <input type="text" id="search-bar" placeholder="Search tools..." autocomplete="off" />
-    <ul id="suggestions" class="autocomplete-list"></ul>
+    <h1>Screen Recorder — 1080p60</h1>
+    <p class="sub">Requests 1920×1080 @ 60fps, high bitrate WebM. Results depend on your hardware & browser.</p>
   </header>
 
-  <main>
-    <section id="tool-grid">
-      <h2>Tools</h2>
-      <div class="tool-card-container">
-        <a href="tools/word-counter/index.html" class="tool-card">Word & Character Counter</a>
-        <a href="tools/json-validator/index.html" class="tool-card">JSON Validator</a>
-        <a href="tools/base64-encoder/index.html" class="tool-card">Base64 Encoder/Decoder</a>
+  <main class="container">
+    <section class="controls card">
+      <div class="grid">
+        <label class="field">
+          <span>Resolution</span>
+          <select id="resolution">
+            <option value="1920x1080" selected>1920×1080 (1080p)</option>
+            <option value="1280x720">1280×720 (720p)</option>
+            <option value="2560x1440">2560×1440 (1440p)</option>
+            <option value="3840x2160">3840×2160 (4K)</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Frame rate</span>
+          <select id="fps">
+            <option value="60" selected>60</option>
+            <option value="30">30</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Bitrate (kbps)</span>
+          <input id="bitrate" type="number" min="1000" step="500" value="12000" />
+        </label>
+
+        <label class="check">
+          <input id="sysAudio" type="checkbox" checked />
+          <span>Include system audio (if supported)</span>
+        </label>
+
+        <label class="check">
+          <input id="micAudio" type="checkbox" />
+          <span>Include microphone</span>
+        </label>
       </div>
+
+      <div class="buttons">
+        <button id="startBtn" class="primary">Start capture</button>
+        <button id="pauseBtn" disabled>Pause</button>
+        <button id="resumeBtn" disabled>Resume</button>
+        <button id="stopBtn" class="danger" disabled>Stop</button>
+      </div>
+
+      <div class="status">
+        <div><strong>Status:</strong> <span id="status">Idle</span></div>
+        <div><strong>Timer:</strong> <span id="timer">00:00</span></div>
+        <div><strong>Recorded:</strong> <span id="size">0.0 MB</span></div>
+        <div><strong>Format:</strong> <span id="format">Detecting…</span></div>
+      </div>
+    </section>
+
+    <section class="preview card">
+      <h2>Preview</h2>
+      <video id="preview" playsinline autoplay muted></video>
+    </section>
+
+    <section class="output card">
+      <h2>Output</h2>
+      <div id="downloads"></div>
+      <p class="note">
+        Tip: Chrome/Edge record to <code>.webm</code>. For editing in picky software, transcode to MP4 with
+        FFmpeg: <code>ffmpeg -i input.webm -c:v libx264 -preset veryfast -crf 20 -c:a aac output.mp4</code>
+      </p>
+    </section>
+
+    <section class="compat card">
+      <h2>Compatibility</h2>
+      <ul id="compatList"></ul>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2025 Example. All rights reserved.</p>
+    <small>Pro tip: your browser may still cap at 30fps if your display or OS can’t deliver 60. That’s not you; that’s physics and drivers.</small>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
