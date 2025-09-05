@@ -2,108 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Screen Recorder — 1080p60</title>
+  <title>CalculatorChoice — Fast, clean calculators</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A fast collection of clean, accurate calculators for maths, physics and chemistry." />
+  <link rel="preload" href="style.css" as="style">
   <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+
+  <!-- Basic Open Graph -->
+  <meta property="og:title" content="CalculatorChoice — Fast, clean calculators">
+  <meta property="og:description" content="A fast collection of clean, accurate calculators for maths, physics and chemistry.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicons (optional) -->
+  <link rel="icon" href="/favicon.ico">
 </head>
 <body>
-  <header class="site-header">
-    <h1>Screen Recorder — 1080p60</h1>
-    <p class="sub">Requests 1920×1080 @ 60fps, high bitrate WebM. Results depend on your hardware & browser.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Top Bar -->
+  <header class="site-header" data-elevated>
+    <div class="wrap">
+      <a class="brand" href="/">
+        <span class="brand-dot" aria-hidden="true"></span>
+        CalculatorChoice
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+        <ul id="menu" class="nav-list">
+          <li><a href="/#math">Math</a></li>
+          <li><a href="/#physics">Physics</a></li>
+          <li><a href="/#chemistry">Chemistry</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="controls card">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>Fast. Minimal. Accurate.</h1>
+      <p class="lede">A modern set of calculators designed for speed, clarity, and zero clutter.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/#chemistry">Explore Chemistry</a>
+        <a class="btn btn-ghost" href="/#math">Browse Math</a>
+      </div>
+    </div>
+    <!-- Subtle animated gradient line -->
+    <div class="hero-stripe" aria-hidden="true"></div>
+  </section>
+
+  <main id="main" class="wrap">
+    <!-- Section: Chemistry -->
+    <section id="chemistry" class="section">
+      <div class="section-head">
+        <h2>Chemistry</h2>
+        <p class="muted">Common classroom-ready tools with steps & worked examples.</p>
+      </div>
+
       <div class="grid">
-        <label class="field">
-          <span>Resolution</span>
-          <select id="resolution">
-            <option value="1920x1080" selected>1920×1080 (1080p)</option>
-            <option value="1280x720">1280×720 (720p)</option>
-            <option value="2560x1440">2560×1440 (1440p)</option>
-            <option value="3840x2160">3840×2160 (4K)</option>
-          </select>
-        </label>
+        <!-- Card pattern: link the whole card -->
+        <a class="card" href="/calculators/molarity-calculator/">
+          <div class="card-top">
+            <div class="badge">Concentration</div>
+            <h3>Molarity Calculator</h3>
+            <p class="muted">Compute M (mol·L⁻¹) from moles & volume, or grams & molar mass.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="chip">M = n / V</span>
+            <span class="chevron" aria-hidden="true">→</span>
+          </div>
+        </a>
 
-        <label class="field">
-          <span>Frame rate</span>
-          <select id="fps">
-            <option value="60" selected>60</option>
-            <option value="30">30</option>
-          </select>
-        </label>
+        <a class="card" href="/calculators/dilution-calculator/">
+          <div class="card-top">
+            <div class="badge">Solution Prep</div>
+            <h3>Dilution Calculator</h3>
+            <p class="muted">Use M₁V₁ = M₂V₂ to plan accurate dilutions in seconds.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="chip">M₁V₁ = M₂V₂</span><span class="chevron">→</span>
+          </div>
+        </a>
 
-        <label class="field">
-          <span>Bitrate (kbps)</span>
-          <input id="bitrate" type="number" min="1000" step="500" value="12000" />
-        </label>
-
-        <label class="check">
-          <input id="sysAudio" type="checkbox" checked />
-          <span>Include system audio (if supported)</span>
-        </label>
-
-        <label class="check">
-          <input id="micAudio" type="checkbox" />
-          <span>Include microphone</span>
-        </label>
-      </div>
-
-      <div class="buttons">
-        <!-- Inline test onclick handler for immediate debugging -->
-        <button id="startBtn" class="primary"
-          onclick="(async()=>{
-            const s = document.querySelector('#status');
-            if (!navigator.mediaDevices?.getDisplayMedia){
-              s.textContent='No getDisplayMedia (unsupported or blocked)';
-              return;
-            }
-            try {
-              await navigator.mediaDevices.getDisplayMedia({ video: true });
-              s.textContent='Picker opened — OK';
-            } catch (e) {
-              s.textContent='Error: ' + (e.name || e.message);
-            }
-          })()"
-        >Start capture</button>
-        <button id="pauseBtn" disabled>Pause</button>
-        <button id="resumeBtn" disabled>Resume</button>
-        <button id="stopBtn" class="danger" disabled>Stop</button>
-      </div>
-
-      <div class="status">
-        <div><strong>Status:</strong> <span id="status">Idle</span></div>
-        <div><strong>Timer:</strong> <span id="timer">00:00</span></div>
-        <div><strong>Recorded:</strong> <span id="size">0.0 MB</span></div>
-        <div><strong>Format:</strong> <span id="format">Detecting…</span></div>
+        <a class="card" href="/calculators/molality-calculator/">
+          <div class="card-top">
+            <div class="badge">Concentration</div>
+            <h3>Molality Calculator</h3>
+            <p class="muted">Concentration per kg of solvent — temperature-independent.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="chip">m = n / m<sub>solvent</sub></span><span class="chevron">→</span>
+          </div>
+        </a>
       </div>
     </section>
 
-    <section class="preview card">
-      <h2>Preview</h2>
-      <video id="preview" playsinline autoplay muted></video>
+    <!-- Section: Math -->
+    <section id="math" class="section">
+      <div class="section-head">
+        <h2>Math</h2>
+        <p class="muted">No-nonsense tools with clean outputs and copy-ready steps.</p>
+      </div>
+
+      <div class="grid">
+        <a class="card" href="/calculators/quadratic-solver/">
+          <div class="card-top">
+            <div class="badge">Algebra</div>
+            <h3>Quadratic Solver</h3>
+            <p class="muted">Find roots, discriminant, vertex and factorization steps.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="chip">ax² + bx + c = 0</span><span class="chevron">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="/calculators/derivative/">
+          <div class="card-top">
+            <div class="badge">Calculus</div>
+            <h3>Derivative Calculator</h3>
+            <p class="muted">Symbolic derivative with simplification and evaluation.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="chip">d/dx</span><span class="chevron">→</span>
+          </div>
+        </a>
+      </div>
     </section>
 
-    <section class="output card">
-      <h2>Output</h2>
-      <div id="downloads"></div>
-      <p class="note">
-        Tip: Chrome/Edge record to <code>.webm</code>. For editing, transcode with:
-        <code>ffmpeg -i input.webm -c:v libx264 -preset veryfast -crf 20 -c:a aac output.mp4</code>
-      </p>
-    </section>
+    <!-- Section: Physics -->
+    <section id="physics" class="section">
+      <div class="section-head">
+        <h2>Physics</h2>
+        <p class="muted">Straightforward formulas with units, conversions and checks.</p>
+      </div>
 
-    <section class="compat card">
-      <h2>Compatibility</h2>
-      <ul id="compatList"></ul>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <small>Pro tip: your browser may still cap at 30 fps if your display/OS can’t deliver 60.</small>
-  </footer>
-
-  <!-- Bump version to bust any caching issues -->
-  <script src="script.js?v=2" defer></script>
-</body>
-</html>
+      <div class="grid">
+        <a class="card" href="/calculators/ohms-law/">
+          <div class="card-top">
+            <div class="badge">Electricity</div>
+            <h3>Ohm’s Law</h3>
+            <p class="muted">Compute V, I or R with unit handli
