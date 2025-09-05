@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "molarity-calculator",
+    "name": "Molarity Calculator",
+    "category": "Chemistry",
+    "canonical": "https://calculatorchoice.com/calculators/molarity-calculator/",
+    "description": "Free molarity calculator to compute molar concentration (M) from moles & volume or grams & molar mass, with steps and examples.",
+    "formula": "M = n / V",
+    "faq": [
+      {"q":"What is molarity?","a":"Molarity (M) is moles of solute per liter of solution (mol·L⁻¹)."},
+      {"q":"How do I get moles from grams?","a":"Divide grams by molar mass (g/mol)."},
+      {"q":"mL or L?","a":"Convert mL to L by dividing by 1000."}
+    ],
+    "howto": ["Measure solution volume in liters.","Find moles (or compute from grams / molar mass).","Compute M = n / V."],
+    "ui": {
+      "type": "molarity",
+      "fields": [
+        {"id":"mode","kind":"radio","label":"Input method","options":[{"label":"Moles & Volume","value":"moles","checked":true},{"label":"Grams, Molar Mass & Volume","value":"grams"}]},
+        {"id":"moles","kind":"number","label":"Moles (mol)","showIf":"mode=moles"},
+        {"id":"grams","kind":"number","label":"Grams (g)","showIf":"mode=grams"},
+        {"id":"mm","kind":"number","label":"Molar mass (g/mol)","showIf":"mode=grams"},
+        {"id":"volumeL","kind":"number","label":"Volume (L)"}
+      ],
+      "computeKey":"molarity"
+    }
+  },
+  {
+    "slug": "dilution-calculator",
+    "name": "Dilution Calculator",
+    "category": "Chemistry",
+    "canonical": "https://calculatorchoice.com/calculators/dilution-calculator/",
+    "description": "Use M₁V₁ = M₂V₂ to plan solution dilutions. Solve any one unknown given the other three.",
+    "formula": "M₁V₁ = M₂V₂",
+    "faq": [
+      {"q":"What units should I use?","a":"Use liters (L) for volume and mol·L⁻¹ for molarity for consistency."},
+      {"q":"Stock vs final volume?","a":"V₂ is the final total solution volume after dilution."}
+    ],
+    "howto": ["Choose which variable to solve for.","Enter the other three values.","Compute the unknown from M₁V₁=M₂V₂."],
+    "ui": {
+      "type": "dilution",
+      "fields": [
+        {"id":"target","kind":"select","label":"Solve for","options":[{"label":"M₁","value":"M1"},{"label":"V₁","value":"V1"},{"label":"M₂","value":"M2"},{"label":"V₂","value":"V2"}]},
+        {"id":"m1","kind":"number","label":"M₁ (mol·L⁻¹)"},
+        {"id":"v1","kind":"number","label":"V₁ (L)"},
+        {"id":"m2","kind":"number","label":"M₂ (mol·L⁻¹)"},
+        {"id":"v2","kind":"number","label":"V₂ (L)"}
+      ],
+      "computeKey":"dilution"
+    }
+  },
+  {
+    "slug": "molality-calculator",
+    "name": "Molality Calculator",
+    "category": "Chemistry",
+    "canonical": "https://calculatorchoice.com/calculators/molality-calculator/",
+    "description": "Calculate molality (m) from moles of solute and kilograms of solvent.",
+    "formula": "m = n / kg",
+    "faq": [
+      {"q":"Molality vs molarity?","a":"Molality is per kilogram of solvent and does not change with temperature; molarity is per liter of solution."}
+    ],
+    "howto": ["Measure kilograms of solvent.","Find moles of solute.","Compute m = n/kg."],
+    "ui": {
+      "type": "molality",
+      "fields": [
+        {"id":"moles","kind":"number","label":"Moles (mol)"},
+        {"id":"kg","kind":"number","label":"Solvent mass (kg)"}
+      ],
+      "computeKey":"molality"
+    }
+  },
+  {
+    "slug": "quadratic-calculator",
+    "name": "Quadratic Solver",
+    "category": "Math",
+    "canonical": "https://calculatorchoice.com/calculators/quadratic-calculator/",
+    "description": "Solve ax²+bx+c=0 for roots with discriminant and notes on the solution type.",
+    "formula": "Δ = b² − 4ac",
+    "faq": [
+      {"q":"What if a=0?","a":"Then it is not quadratic; this tool requires a ≠ 0."}
+    ],
+    "howto": ["Enter a, b, c.","Compute Δ = b²−4ac.","Evaluate roots via quadratic formula."],
+    "ui": {
+      "type": "quadratic",
+      "fields": [
+        {"id":"a","kind":"number","label":"a"},
+        {"id":"b","kind":"number","label":"b"},
+        {"id":"c","kind":"number","label":"c"}
+      ],
+      "computeKey":"quadratic"
+    }
+  },
+  {
+    "slug": "ohms-law",
+    "name": "Ohm’s Law Calculator",
+    "category": "Physics",
+    "canonical": "https://calculatorchoice.com/calculators/ohms-law/",
+    "description": "Compute V, I or R given the other two with unit-aware hints.",
+    "formula": "V = IR",
+    "faq": [
+      {"q":"Units?","a":"Use volts (V), amperes (A) and ohms (Ω)."}
+    ],
+    "howto": ["Choose a target variable.","Provide the other two values.","Compute using V=IR."],
+    "ui": {
+      "type": "ohms",
+      "fields": [
+        {"id":"target","kind":"select","label":"Solve for","options":[{"label":"V","value":"V"},{"label":"I","value":"I"},{"label":"R","value":"R"}]},
+        {"id":"V","kind":"number","label":"V (volts)"},
+        {"id":"I","kind":"number","label":"I (amperes)"},
+        {"id":"R","kind":"number","label":"R (ohms)"}
+      ],
+      "computeKey":"ohms"
+    }
+  }
+]
