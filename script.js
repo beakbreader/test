@@ -1,19 +1,7 @@
-// Simple mobile nav toggle + prefers-reduced-motion guard for future animations
+// Minimal enhancements: accessible hash focus & future hooks
 (function(){
-  const btn = document.querySelector('.nav-toggle');
-  const list = document.querySelector('.nav-list');
-  if (!btn || !list) return;
-
-  btn.addEventListener('click', () => {
-    const isOpen = list.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  // Close when clicking a link (mobile)
-  list.addEventListener('click', (e) => {
-    if (e.target.closest('a')) {
-      list.classList.remove('is-open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
+  if (location.hash) {
+    const el = document.querySelector(location.hash);
+    if (el) el.setAttribute('tabindex','-1'), el.focus();
+  }
 })();
