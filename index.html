@@ -2,23 +2,123 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>CalculatorChoice — Free Online Calculators</title>
-<meta name="description" content="A hub of math, physics, and chemistry calculators with bold clean design and accurate results.">
-<meta name="keywords" content="online calculator, math calculator, chemistry calculator, physics calculator, molarity calculator, dilution calculator">
+<title>CalculatorChoice — Free Online Calculators (Math • Physics • Chemistry)</title>
+<meta name="description" content="Fast, clean, accurate calculators with worked examples: Molarity, Dilution, Molality, Quadratic Solver, Ohm’s Law and more.">
+<meta name="keywords" content="online calculator, molarity calculator, dilution calculator, molality calculator, quadratic formula, ohms law, physics calculator, chemistry calculator, math calculator">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0d">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://calculatorchoice.com/">
-<link rel="stylesheet" href="style.css">
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+<meta property="og:title" content="CalculatorChoice — Free Online Calculators">
+<meta property="og:description" content="A modern hub of fast, clean calculators for math, physics and chemistry.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculatorchoice.com/">
+<meta property="og:image" content="https://calculatorchoice.com/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CalculatorChoice — Free Online Calculators">
+<meta name="twitter:description" content="Fast, clean, accurate calculators with worked examples.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"CalculatorChoice","url":"https://calculatorchoice.com/","potentialAction":{"@type":"SearchAction","target":"https://calculatorchoice.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "name":"CalculatorChoice",
+      "url":"https://calculatorchoice.com/",
+      "potentialAction":{
+        "@type":"SearchAction",
+        "target":"https://calculatorchoice.com/?q={search_term_string}",
+        "query-input":"required name=search_term_string"
+      }
+    },
+    {
+      "@type":"Organization",
+      "name":"CalculatorChoice",
+      "url":"https://calculatorchoice.com/",
+      "logo":"https://calculatorchoice.com/og-default.png"
+    }
+  ]
+}
 </script>
 </head>
 <body>
-<header><h1>CalculatorChoice</h1><p class="muted">Fast, clean, accurate calculators</p></header>
-<main>
-<div class="card"><h2><a href="/calculators/molarity-calculator/">Molarity Calculator</a></h2><p>Compute mol·L⁻¹ from moles and volume, or grams and molar mass.</p></div>
-<div class="card"><h2><a href="/calculators/dilution-calculator/">Dilution Calculator</a></h2><p>Use M₁V₁=M₂V₂ for accurate solution prep.</p></div>
-<div class="card"><h2><a href="/calculators/molality-calculator/">Molality Calculator</a></h2><p>Concentration per kg solvent, temperature-independent.</p></div>
-<div class="card"><h2><a href="/calculators/quadratic-calculator/">Quadratic Solver</a></h2><p>Find roots and discriminant of ax²+bx+c=0.</p></div>
+<header class="header">
+  <div class="wrap">
+    <h1>CalculatorChoice</h1>
+    <p class="muted">Fast • Clean • Accurate</p>
+    <nav aria-label="Primary">
+      <ul class="nav">
+        <li><a href="#chemistry">Chemistry</a></li>
+        <li><a href="#math">Math</a></li>
+        <li><a href="#physics">Physics</a></li>
+        <li><a href="/sitemap.xml">Sitemap</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="chemistry">
+    <h2>Chemistry</h2>
+    <div class="grid">
+      <a class="bubble" href="/calculators/molarity-calculator/">
+        <span class="badge">Concentration</span>
+        <h3>Molarity Calculator</h3>
+        <p class="muted">Compute M (mol·L⁻¹) from moles & volume or grams & molar mass.</p>
+        <div class="detail">M = n / V</div>
+      </a>
+      <a class="bubble" href="/calculators/dilution-calculator/">
+        <span class="badge">Solution Prep</span>
+        <h3>Dilution Calculator</h3>
+        <p class="muted">Plan dilutions with M₁V₁ = M₂V₂.</p>
+        <div class="detail">Solve any one unknown</div>
+      </a>
+      <a class="bubble" href="/calculators/molality-calculator/">
+        <span class="badge">Concentration</span>
+        <h3>Molality Calculator</h3>
+        <p class="muted">Concentration per kg of solvent, temperature-independent.</p>
+        <div class="detail">m = n / kg</div>
+      </a>
+    </div>
+  </section>
+
+  <section id="math">
+    <h2>Math</h2>
+    <div class="grid">
+      <a class="bubble" href="/calculators/quadratic-calculator/">
+        <span class="badge">Algebra</span>
+        <h3>Quadratic Solver</h3>
+        <p class="muted">Roots, discriminant, vertex, factorization steps.</p>
+        <div class="detail">ax² + bx + c = 0</div>
+      </a>
+    </div>
+  </section>
+
+  <section id="physics">
+    <h2>Physics</h2>
+    <div class="grid">
+      <a class="bubble" href="/calculators/ohms-law/">
+        <span class="badge">Electricity</span>
+        <h3>Ohm’s Law Calculator</h3>
+        <p class="muted">Compute V, I or R with unit handling.</p>
+        <div class="detail">V = IR</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>About</h2>
+    <p class="muted">Minimal dark theme, rounded “bubbles,” strong metadata, and rich snippets for discoverability.</p>
+  </section>
 </main>
-<footer><p>© CalculatorChoice</p></footer>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="muted">© CalculatorChoice — Educational use only</p>
+  </div>
+</footer>
+<script defer src="/script.js"></script>
 </body>
 </html>
